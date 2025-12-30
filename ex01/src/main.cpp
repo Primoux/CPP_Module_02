@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 21:33:51 by enchevri          #+#    #+#             */
-/*   Updated: 2025/12/29 11:42:29 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/12/29 14:18:59 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 
 int	main(void)
 {
-	// Fixed a;
-	// Fixed b(a);
-	// Fixed c;
-	Fixed q(0.42f);
-	// b.setRawBits(10);
-	// c = b;
-	// std::cout << a.getRawBits() << std::endl;
-	// std::cout << b.getRawBits() << std::endl;
-	// std::cout << c.getRawBits() << std::endl;
-	std::cout << q.getRawBits() << std::endl;
-	float f = q.toFloat();
-	std::cout << f << std::endl;
+	Fixed	a;
+
+	Fixed const b(10);
+	Fixed c(42.42f);
+	Fixed const d(b);
+	a = Fixed(1234.4321550000001f);
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return (0);
 }
