@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:37:43 by enchevri          #+#    #+#             */
-/*   Updated: 2025/12/30 16:03:20 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 16:03:33 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <ostream>
 
-Fixed::Fixed() : fixed(0)
+Fixed::Fixed() : _fixed(0)
 {
 }
 
@@ -25,22 +25,22 @@ Fixed::~Fixed()
 
 Fixed::Fixed(Fixed const &original)
 {
-	this->fixed = original.fixed;
+	this->_fixed = original._fixed;
 }
 
 Fixed::Fixed(const int nb)
 {
-	this->fixed = nb << this->fracBits;
+	this->_fixed = nb << this->_fracBits;
 }
 
 Fixed::Fixed(const float nb)
 {
-	this->fixed = roundf(nb * (1 << this->fracBits));
+	this->_fixed = roundf(nb * (1 << this->_fracBits));
 }
 
 Fixed &Fixed::operator=(Fixed const &other)
 {
-	this->fixed = other.fixed;
+	this->_fixed = other._fixed;
 	return (*this);
 }
 
@@ -94,75 +94,75 @@ bool Fixed::operator!=(const Fixed &other) const
 Fixed Fixed::operator+(const Fixed &other) const
 {
 	Fixed result;
-	result.setRawBits(this->fixed + other.fixed);
+	result.setRawBits(this->_fixed + other._fixed);
 	return (result);
 }
 
 Fixed Fixed::operator-(const Fixed &other) const
 {
 	Fixed result;
-	result.setRawBits(this->fixed - other.fixed);
+	result.setRawBits(this->_fixed - other._fixed);
 	return (result);
 }
 
 Fixed Fixed::operator*(const Fixed &other) const
 {
 	Fixed result;
-	result.setRawBits((this->fixed * other.fixed) >> fracBits);
+	result.setRawBits((this->_fixed * other._fixed) >> _fracBits);
 	return (result);
 }
 
 Fixed Fixed::operator/(const Fixed &other) const
 {
 	Fixed result;
-	result.setRawBits((this->fixed << fracBits) / other.fixed);
+	result.setRawBits((this->_fixed << _fracBits) / other._fixed);
 	return (result);
 }
 
 Fixed &Fixed::operator++(void)
 {
-	this->fixed++;
+	this->_fixed++;
 	return (*this);
 }
 
 Fixed &Fixed::operator--(void)
 {
-	this->fixed--;
+	this->_fixed--;
 	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
 	Fixed tmp(*this);
-	this->fixed++;
+	this->_fixed++;
 	return (tmp);
 }
 
 Fixed Fixed::operator--(int)
 {
 	Fixed tmp(*this);
-	this->fixed--;
+	this->_fixed--;
 	return (tmp);
 }
 
 int Fixed::getRawBits(void) const
 {
-	return (this->fixed);
+	return (this->_fixed);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->fixed = raw;
+	this->_fixed = raw;
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->fixed / (float)(1 << this->fracBits));
+	return ((float)this->_fixed / (float)(1 << this->_fracBits));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->fixed >> this->fracBits);
+	return (this->_fixed >> this->_fracBits);
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)

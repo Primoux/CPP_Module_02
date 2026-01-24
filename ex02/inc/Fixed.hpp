@@ -6,8 +6,8 @@
 class Fixed
 {
   private:
-	int fixed;
-	static const int fracBits = 8;
+	int _fixed;
+	static const int _fracBits = 8;
 
   public:
 	// CONSTRUCTOR
