@@ -6,27 +6,28 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:37:43 by enchevri          #+#    #+#             */
-/*   Updated: 2025/12/29 11:55:42 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2026/01/24 14:18:15 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Color.h"
 #include <iostream>
 #include <ostream>
 
 Fixed::Fixed() : fixed(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << GREEN "Default constructor called" RESET << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called " << this->fixed << std::endl;
+	std::cout << RED "Destructor called for " << this->fixed << RESET << std::endl;
 }
 
 Fixed::Fixed(Fixed const &original)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << GREEN "Copy constructor called" RESET << std::endl;
 	this->fixed = original.fixed;
 }
 
@@ -38,12 +39,12 @@ Fixed &Fixed::operator=(Fixed const &other)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	std::cout << YELLOW "getRawBits member function called" RESET << std::endl;
 	return (this->fixed);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	std::cout << YELLOW "setRawBits member function called" RESET << std::endl;
 	this->fixed = raw;
 }
