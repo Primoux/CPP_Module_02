@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 21:33:51 by enchevri          #+#    #+#             */
-/*   Updated: 2026/01/24 15:59:43 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2026/01/26 15:43:49 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,18 @@ int	main(void)
 		std::cout << YELLOW << ">>> Subject tests <<<" << RESET << endl;
 		std::cout << CYAN << "--- Basic test main ---" << RESET << endl;
 		Fixed a;
-		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+		Fixed b( Fixed( 5.05f ) * Fixed( 2 ) );
 		std::cout << MAGENTA << "a" << RESET << " = " << YELLOW << a << RESET << endl;
 		std::cout << MAGENTA << "++a" << RESET << " = " << YELLOW << ++a << RESET << endl;
 		std::cout << MAGENTA << "a" << RESET << " = " << YELLOW << a << RESET << endl;
 		std::cout << MAGENTA << "a++" << RESET << " = " << YELLOW << a++ << RESET << endl;
+		a = 5.3f;
+		b = 0.2f;
+		std::cout << MAGENTA << "------------------------" << RESET << endl;
 		std::cout << MAGENTA << "a" << RESET << " = " << YELLOW << a << RESET << endl;
 		std::cout << MAGENTA << "b" << RESET << " = " << YELLOW << b << RESET << endl;
 		std::cout << MAGENTA << "max(a, b)" << RESET << " = " << YELLOW << Fixed::max( a, b ) << RESET << endl;
+		std::cout << MAGENTA << "min(a, b)" << RESET << " = " << YELLOW << Fixed::min( a, b ) << RESET << endl;
 	}
 	
 	std::cout << CYAN << "\n╔═══════════════════════════╗" << RESET << endl;
